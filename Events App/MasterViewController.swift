@@ -14,6 +14,73 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let url = NSURL(string: "https://www.kimonolabs.com/api/6tewont8?apikey=CPMj8n9tabsEUqUjKEPiHOmVir5gZjfq")
+        
+        let session = NSURLSession.sharedSession()
+        
+        let task = session.dataTaskWithURL(url!) { (data, response, error) -> Void in
+            
+            if error != nil {
+                
+                print(error)
+                
+            } else {
+                
+                // print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+                
+                do {
+                    
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    
+                    if jsonResult.count > 0 {
+                        
+                        if let results = jsonResult["results"] as? NSDictionary {
+                            
+                            if let eventData = results["collection1"] as? NSArray {
+                                
+                                for event in eventData {
+                                    
+                                    if let eventTitle = event["EventTitle"] as? NSDictionary {
+                                        
+                                        if let eventTitleText = eventTitle["text"] as? String {
+                                            
+                                            if let eventDate = event["EventDate"] as? String {
+                                                
+                                                if let eventTicketLink = event["EventTicketLink"] as? NSDictionary {
+                                                    
+                                                    if let eventLink = eventTicketLink["href"] as? String {
+                                                        
+                                                        print(eventTitleText)
+                                                        print(eventDate)
+                                                        print(eventLink)
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                } catch {}
+                
+            }
+            
+        }
+        
+        task.resume()
+        
     }
 
     override func viewWillAppear(animated: Bool) {
