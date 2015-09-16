@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet var eventWebView: UIWebView!
 
     var detailItem: AnyObject? {
         didSet {
@@ -20,6 +21,20 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
+        
+        if let detail = self.detailItem {
+            if let wv = self.eventWebView {
+                
+                
+                
+                var url = NSURL(string: detail.valueForKey("eventLink")!.description)
+                
+                var request = NSURLRequest(URL: url!)
+                
+                eventWebView.loadRequest(request)
+                
+            }
+        }
         
     }
 
