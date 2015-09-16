@@ -15,6 +15,10 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let context : NSManagedObjectContext = appDel.managedObjectContext
+        
         let url = NSURL(string: "https://www.kimonolabs.com/api/6tewont8?apikey=CPMj8n9tabsEUqUjKEPiHOmVir5gZjfq")
         
         let session = NSURLSession.sharedSession()
@@ -35,6 +39,28 @@ class MasterViewController: UITableViewController {
                     
                     if jsonResult.count > 0 {
                         
+                        var request = NSFetchRequest(entityName: "ForumEvents")
+                        
+                        request.returnsObjectsAsFaults = false
+                        
+                        do {
+                            
+                            var results = try context.executeFetchRequest(request)
+                            
+                            if results.count > 0 {
+                                
+                                for result in results {
+                                    
+                                    context.deleteObject(result as! NSManagedObject)
+                                    
+                                    do { try context.save() } catch {}
+                                    
+                                }
+                                
+                            }
+                            
+                        } catch {}
+                        
                         if let results = jsonResult["results"] as? NSDictionary {
                             
                             if let eventData = results["collection1"] as? NSArray {
@@ -51,9 +77,21 @@ class MasterViewController: UITableViewController {
                                                     
                                                     if let eventLink = eventTicketLink["href"] as? String {
                                                         
-                                                        print(eventTitleText)
-                                                        print(eventDate)
-                                                        print(eventLink)
+                                                        let newEvent : NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName("ForumEvents", inManagedObjectContext: context)
+                                                        
+                                                        newEvent.setValue(eventTitleText, forKey: "eventTitle")
+                                                        
+                                                        newEvent.setValue(eventDate, forKey: "eventDate")
+                                                        
+                                                        newEvent.setValue(eventLink, forKey: "eventLink")
+                                                        
+                                                        do {
+                                                            
+                                                            try context.save()
+                                                            
+                                                        } catch {}
+                                                        
+                                                        
                                                         
                                                     }
                                                     
@@ -72,6 +110,18 @@ class MasterViewController: UITableViewController {
                         }
                         
                     }
+                    
+                    let request = NSFetchRequest(entityName: "ForumEvents")
+                    
+                    request.returnsObjectsAsFaults = false
+                    
+                    do {
+                        
+                        let results = try context.executeFetchRequest(request)
+                        
+                        print(results)
+                        
+                    } catch {}
                     
                 } catch {}
                 
