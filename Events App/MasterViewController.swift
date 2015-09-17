@@ -8,14 +8,22 @@
 
 import UIKit
 import CoreData
+import Parse
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var managedObjectContext: NSManagedObjectContext? = nil
+    var detailViewController: DetailViewController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Object has been saved.")
+        }
         
         let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -41,31 +49,31 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                     
                     if jsonResult.count > 0 {
                         
-                        let request = NSFetchRequest(entityName: "ForumEvents")
-                        
-                        request.returnsObjectsAsFaults = false
-                        
-                        do {
-                            
-                            let results = try context.executeFetchRequest(request)
-                            
-                            if results.count > 0 {
-                                
-                                for result in results {
-                                    
-                                    context.deleteObject(result as! NSManagedObject)
-                                    
-                                    do { try context.save() } catch {}
-                                    
-                                }
-                                
-                            }
-                            
-                        } catch {}
-                        
                         if let results = jsonResult["results"] as? NSDictionary {
                             
                             if let eventData = results["collection1"] as? NSArray {
+                                
+                                let request = NSFetchRequest(entityName: "ForumEvents")
+                                
+                                request.returnsObjectsAsFaults = false
+                                
+                                do {
+                                    
+                                    let results = try context.executeFetchRequest(request)
+                                    
+                                    if results.count > 0 {
+                                        
+                                        for result in results {
+                                            
+                                            context.deleteObject(result as! NSManagedObject)
+                                            
+                                            do { try context.save() } catch {}
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                } catch {}
                                 
                                 for event in eventData {
                                     
@@ -87,11 +95,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                                                         
                                                         newEvent.setValue(eventLink, forKey: "eventLink")
                                                         
-                                                        do {
-                                                            
-                                                            try context.save()
-                                                            
-                                                        } catch {}
+                                                        do { try context.save() } catch {}
                                                         
                                                         
                                                         
@@ -160,6 +164,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = self.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
+        // Tried: return self.fetchedResultsController.fetchedObjects!.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

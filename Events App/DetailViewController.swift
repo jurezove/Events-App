@@ -25,13 +25,11 @@ class DetailViewController: UIViewController {
         if let detail = self.detailItem {
             if let wv = self.eventWebView {
                 
+                let url = NSURL(string: detail.valueForKey("eventLink")!.description)
                 
+                let request = NSURLRequest(URL: url!)
                 
-                var url = NSURL(string: detail.valueForKey("eventLink")!.description)
-                
-                var request = NSURLRequest(URL: url!)
-                
-                eventWebView.loadRequest(request)
+                wv.loadRequest(request)
                 
             }
         }
