@@ -113,7 +113,7 @@ class LoginViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
                 let mvc = MasterViewController()
                 
-                mvc.viewWillAppear(true)
+                
                 
                 let homeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("home") as! MasterViewController
                 
