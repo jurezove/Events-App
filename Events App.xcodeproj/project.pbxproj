@@ -26,6 +26,7 @@
 		BE32014E1BAB12700007F810 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE32014D1BAB12700007F810 /* SystemConfiguration.framework */; };
 		BE3201501BAB13DB0007F810 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE32014F1BAB13DB0007F810 /* libz.1.dylib */; };
 		BE3201521BAB14020007F810 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3201511BAB14020007F810 /* libsqlite3.dylib */; };
+		BE3201561BAB20100007F810 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3201551BAB20100007F810 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		BE32014D1BAB12700007F810 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BE32014F1BAB13DB0007F810 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
 		BE3201511BAB14020007F810 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = /usr/lib/libsqlite3.dylib; sourceTree = "<absolute>"; };
+		BE3201551BAB20100007F810 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				BE135AA41BA88A25005FD2B0 /* MasterViewController.swift */,
 				BE135AA61BA88A25005FD2B0 /* DetailViewController.swift */,
 				BE135AA81BA88A25005FD2B0 /* Main.storyboard */,
+				BE3201551BAB20100007F810 /* LoginViewController.swift */,
 				BE135AAB1BA88A25005FD2B0 /* Assets.xcassets */,
 				BE135AAD1BA88A25005FD2B0 /* LaunchScreen.storyboard */,
 				BE135AB01BA88A25005FD2B0 /* Info.plist */,
@@ -199,6 +202,7 @@
 				BE135AA31BA88A25005FD2B0 /* Events_App.xcdatamodeld in Sources */,
 				BE135AA01BA88A25005FD2B0 /* AppDelegate.swift in Sources */,
 				BE135AA51BA88A25005FD2B0 /* MasterViewController.swift in Sources */,
+				BE3201561BAB20100007F810 /* LoginViewController.swift in Sources */,
 				BE135AA71BA88A25005FD2B0 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

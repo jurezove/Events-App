@@ -12,18 +12,79 @@ import Parse
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    var loggedIn = false
+    
     var managedObjectContext: NSManagedObjectContext? = nil
     var detailViewController: DetailViewController? = nil
+    
+    @IBOutlet var tableViewLoginButton: UIBarButtonItem!
+    
+    @IBAction func tableViewLoginButtonAction(sender: AnyObject) {
+        
+        shouldPerformSegueWithIdentifier("loginSegue", sender: nil)
+        
+    }
+    
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        
+        if let ident = identifier {
+            
+            if ident == "loginSegue" {
+                
+                
+                if loggedIn == true {
+                    
+                    PFUser.logOutInBackgroundWithBlock({ (error) -> Void in
+                        
+                        self.checkForUser()
+                        
+                    })
+                    
+                    
+                    return false
+                }
+                
+            }
+            
+        }
+        return true
+    }
+    
+    
+    func checkForUser() {
+        
+        let currentUser = PFUser.currentUser()
+        if (currentUser != nil) {
+            
+            loggedIn = true
+            tableViewLoginButton.title = "Logout"
+            
+        } else {
+            
+            loggedIn = false
+            tableViewLoginButton.title = "Login"
+            
+        }
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
-        }
+        // Code for Login and Sign Up
+        
+        checkForUser()
+        
+        coreDataSetup()
+        
+        
+    }
+    
+    func coreDataSetup() {
+        
+        // Code for fetching json data, saving as core data and loading to table view
         
         let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -153,6 +214,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             }
             
         }
+        
+        if segue.identifier == "loginSegue" {
+            
+            checkForUser()
+            
+        }
+        
     }
 
     // MARK: - Table View
