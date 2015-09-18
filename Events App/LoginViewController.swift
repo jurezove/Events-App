@@ -111,9 +111,6 @@ class LoginViewController: UIViewController {
             
             let alertController = UIAlertController(title: "Welcome", message: "You are now logged in", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-                let mvc = MasterViewController()
-                
-                
                 
                 let homeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("home") as! MasterViewController
                 

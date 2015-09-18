@@ -14,8 +14,6 @@
 		BE135AAA1BA88A25005FD2B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE135AA81BA88A25005FD2B0 /* Main.storyboard */; };
 		BE135AAC1BA88A25005FD2B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE135AAB1BA88A25005FD2B0 /* Assets.xcassets */; };
 		BE135AAF1BA88A25005FD2B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE135AAD1BA88A25005FD2B0 /* LaunchScreen.storyboard */; };
-		BE32013C1BAB11A30007F810 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE32013B1BAB11A30007F810 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
-		BE32013E1BAB11C00007F810 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE32013D1BAB11C00007F810 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		BE3201401BAB122C0007F810 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE32013F1BAB122C0007F810 /* AudioToolbox.framework */; };
 		BE3201421BAB12350007F810 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3201411BAB12350007F810 /* CFNetwork.framework */; };
 		BE3201441BAB123D0007F810 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3201431BAB123D0007F810 /* CoreGraphics.framework */; };
@@ -27,6 +25,8 @@
 		BE3201501BAB13DB0007F810 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE32014F1BAB13DB0007F810 /* libz.1.dylib */; };
 		BE3201521BAB14020007F810 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3201511BAB14020007F810 /* libsqlite3.dylib */; };
 		BE3201561BAB20100007F810 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3201551BAB20100007F810 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BE96A5F31BAC127400185D10 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE96A5F11BAC127400185D10 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		BE96A5F41BAC127400185D10 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE96A5F21BAC127400185D10 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +39,6 @@
 		BE135AAB1BA88A25005FD2B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE135AAE1BA88A25005FD2B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE135AB01BA88A25005FD2B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE32013B1BAB11A30007F810 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Events App/Parse.framework"; sourceTree = "<group>"; };
-		BE32013D1BAB11C00007F810 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Events App/Bolts.framework"; sourceTree = "<group>"; };
 		BE32013F1BAB122C0007F810 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BE3201411BAB12350007F810 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BE3201431BAB123D0007F810 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -52,6 +50,8 @@
 		BE32014F1BAB13DB0007F810 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
 		BE3201511BAB14020007F810 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = /usr/lib/libsqlite3.dylib; sourceTree = "<absolute>"; };
 		BE3201551BAB20100007F810 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BE96A5F11BAC127400185D10 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		BE96A5F21BAC127400185D10 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +67,10 @@
 				BE3201481BAB124F0007F810 /* QuartzCore.framework in Frameworks */,
 				BE3201461BAB12450007F810 /* CoreLocation.framework in Frameworks */,
 				BE3201441BAB123D0007F810 /* CoreGraphics.framework in Frameworks */,
+				BE96A5F31BAC127400185D10 /* Bolts.framework in Frameworks */,
 				BE3201421BAB12350007F810 /* CFNetwork.framework in Frameworks */,
+				BE96A5F41BAC127400185D10 /* Parse.framework in Frameworks */,
 				BE3201401BAB122C0007F810 /* AudioToolbox.framework in Frameworks */,
-				BE32013C1BAB11A30007F810 /* Parse.framework in Frameworks */,
-				BE32013E1BAB11C00007F810 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +115,8 @@
 			children = (
 				BE3201511BAB14020007F810 /* libsqlite3.dylib */,
 				BE32014F1BAB13DB0007F810 /* libz.1.dylib */,
-				BE32013B1BAB11A30007F810 /* Parse.framework */,
-				BE32013D1BAB11C00007F810 /* Bolts.framework */,
+				BE96A5F11BAC127400185D10 /* Bolts.framework */,
+				BE96A5F21BAC127400185D10 /* Parse.framework */,
 				BE32013F1BAB122C0007F810 /* AudioToolbox.framework */,
 				BE3201411BAB12350007F810 /* CFNetwork.framework */,
 				BE3201431BAB123D0007F810 /* CoreGraphics.framework */,
@@ -318,6 +318,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Events",
 					App,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Events App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -334,6 +335,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Events",
 					App,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Events App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
